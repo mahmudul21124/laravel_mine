@@ -1,10 +1,10 @@
 <div class="nk-sidebar">
     <div class="nk-nav-scroll">
         <ul class="metismenu" id="menu">
-            <li class="nav-label">Admin Dashboard</li>
+            <li class="nav-label">Teacher Dashboard</li>
             <li class="mega-menu mega-menu-lg">
                 <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                    <i class="mdi mdi-view-dashboard"></i><span class="nav-text">Admin Dashboard</span><span class="badge bg-dpink text-white nav-badge">21</span>
+                    <i class="mdi mdi-view-dashboard"></i><span class="nav-text">Teacher Dashboard</span><span class="badge bg-dpink text-white nav-badge">21</span>
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="index-restaurent.html">Restaurant</a></li>

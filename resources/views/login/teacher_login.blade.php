@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Admin Login</title>
+    <title>Teacher Login</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
     <!-- Custom Stylesheet -->
@@ -44,9 +44,9 @@
                                         <img src="../../assets/images/f-logo.png" alt="">
                                     </a>
                                 </div>
-                                <h4 class="text-center mt-4">Log into Admin Account</h4>
+                                <h4 class="text-center mt-4">Log into Teacher Account</h4>
 
-                                <form class="mt-5 mb-5" method="POST" action="{{route('admin.login')}}" >
+                                <form class="mt-5 mb-5" method="POST" action="{{route('teacher.login')}}" >
                                     @csrf
                                     <div class="form-group">
                                         <label>Email</label>

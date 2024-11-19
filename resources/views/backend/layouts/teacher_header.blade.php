@@ -154,9 +154,9 @@
                                 <li><a href="javascript:void()"><i class="icon-lock"></i> <span>Lock Screen</span></a>
                                 </li>
                                 <li>
-                                    <form action="{{route('admin.logout')}}" method="post">
+                                    <form action="{{route('teacher.logout')}}" method="post">
                                         @csrf
-                                        <button class="btn btn-sm btn-danger" type="submit"><i class="fa fa-fw fa-power-off"></i>Admin Log Out</button>
+                                        <button class="btn btn-sm btn-danger" type="submit"><i class="fa fa-fw fa-power-off"></i>Teacher Log Out</button>
                                     </form>
                                     {{-- <a href="javascript:void()"><i class="icon-power"></i> <span>Logout</span></a> --}}
                                 </li>

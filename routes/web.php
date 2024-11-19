@@ -20,9 +20,9 @@ Route::get('/', function () {
 
 // Admin Dashboard
 
-Route::get('/admin/dashboard', function () {
-    return view('backend.admin_dashboard');
-})->middleware(['auth:admin', 'verified'])->name('admin_dashboard');
+// Route::get('/admin/dashboard', function () {
+//     return view('backend.admin_dashboard');
+// })->middleware(['auth:admin', 'verified'])->name('admin_dashboard');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -37,21 +37,32 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-// multi guard
-
+// Admin guard
 Route::middleware('guest:admin')->prefix('admin')->group( function () {
 
     Route::get('login', [App\Http\Controllers\Auth\Admin\LoginController::class, 'login'])->name('admin.login');
     Route::post('login', [App\Http\Controllers\Auth\Admin\LoginController::class, 'check_user']);
-
-    
 
 });
 
 Route::middleware('auth:admin')->prefix('admin')->group( function () {
 
     Route::post('logout', [App\Http\Controllers\Auth\Admin\LoginController::class, 'logout'])->name('admin.logout');
+    Route::view('/dashboard','backend.admin_dashboard');
 
-    Route::view('/admin/dashboard','backend.admin_dashboard');
+});
+
+// Teacher guard
+Route::middleware('guest:teacher')->prefix('teacher')->group( function () {
+
+    Route::get('login', [App\Http\Controllers\Auth\Teacher\LoginController::class, 'login'])->name('teacher.login');
+    Route::post('login', [App\Http\Controllers\Auth\Teacher\LoginController::class, 'check_user']);
+
+});
+
+Route::middleware('auth:teacher')->prefix('teacher')->group( function () {
+
+    Route::post('logout', [App\Http\Controllers\Auth\Teacher\LoginController::class, 'logout'])->name('teacher.logout');
+    Route::view('/dashboard','backend.teacher_dashboard');
 
 });

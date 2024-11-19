@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title> Admin Dashboard </title>
+    <title>Dashboard </title>
 
     <!-- CSS -->
     @include('backend.layouts.css_files')
@@ -22,7 +22,11 @@
         <!--**********************************
             Nav header start
         ***********************************-->
-        @include('backend.layouts.header')
+        @if (Auth()->guard('admin')->check())
+            @include('backend.layouts.header')
+        @elseif (Auth()->guard('teacher')->check())
+            @include('backend.layouts.teacher_header')
+        @endif
         <!--**********************************
             Nav header end
         ***********************************-->
@@ -30,7 +34,11 @@
         <!--**********************************
             Sidebar start
         ***********************************-->
-        @include('backend.layouts.sidebar')
+        @if (Auth()->guard('admin')->check())
+            @include('backend.layouts.sidebar')
+        @elseif (Auth()->guard('teacher')->check())
+            @include('backend.layouts.teacher_sidebar')
+        @endif
         <!--**********************************
             Sidebar end
         ***********************************-->
