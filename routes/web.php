@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\backend\DesignationController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,6 +50,7 @@ Route::middleware('auth:admin')->prefix('admin')->group( function () {
 
     Route::post('logout', [App\Http\Controllers\Auth\Admin\LoginController::class, 'logout'])->name('admin.logout');
     Route::view('/dashboard','backend.admin_dashboard');
+    Route::resource('/designation', DesignationController::class);
 
 });
 
@@ -64,5 +66,6 @@ Route::middleware('auth:teacher')->prefix('teacher')->group( function () {
 
     Route::post('logout', [App\Http\Controllers\Auth\Teacher\LoginController::class, 'logout'])->name('teacher.logout');
     Route::view('/dashboard','backend.teacher_dashboard');
+    
 
 });

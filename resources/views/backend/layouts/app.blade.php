@@ -8,7 +8,7 @@
     <title>Dashboard </title>
 
     <!-- CSS -->
-    @include('backend.layouts.css_files')
+    @yield('css')
 
 </head>
 
@@ -76,7 +76,7 @@
     <!--**********************************
         Scripts
     ***********************************-->
-    @include('backend.layouts.js_files')
+    @yield('js')
 </body>
 
 </html>

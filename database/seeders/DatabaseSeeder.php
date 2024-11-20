@@ -28,12 +28,14 @@ class DatabaseSeeder extends Seeder
         //     ]
         // );
 
-        \App\Models\Teacher::create(
-            [
-                'name' => 'Teacher',
-                'email' => 'teacher@gmail.com',
-                'password' => Hash::make('admin123')
-            ]
-        );
+        // \App\Models\Teacher::create(
+        //     [
+        //         'name' => 'Teacher',
+        //         'email' => 'teacher@gmail.com',
+        //         'password' => Hash::make('admin123')
+        //     ]
+        // );
+
+        \App\Models\Designation::factory(50)->create();
     }
 }
