@@ -37,14 +37,16 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <a href="{{ route('designation.create') }}" class="btn btn-success pull-right">Add
+                                <a href="{{ route('teacher.create') }}" class="btn btn-success pull-right">Add
                                     new</a><br><br>
                                 <table id="example" class="display" style="min-width: 845px">
                                     <thead>
                                         <tr>
                                             <th>Id</th>
+                                            <th>Lecturer Name</th>
                                             <th>Designation</th>
-                                            <th>Details</th>
+                                            <th>Email</th>
+                                            <th>Photo</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -53,18 +55,21 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->name }}</td>
-                                                <td>{{ $item->details }}</td>
+                                                <td>{{ $item->designation->name }}</td>
+                                                <td>{{ $item->email }}</td>
+                                                <td>{{ $item->photo }}</td>
+                                                
                                                 <td>
-                                                    <form action="{{ route('designation.destroy', $item->id) }}"
+                                                    <form action="{{ route('teacher.destroy', $item->id) }}"
                                                         method="post">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <a href="{{ route('designation.edit', $item->id) }}"
+                                                        <a href="{{ route('teacher.edit', $item->id) }}"
                                                             class="btn btn-sm btn-success btn-anim"><i
                                                                 class="fa fa-pencil-square-o"></i><span
                                                                 class="btn-text">EDIT</span></a>
                                                         |
-                                                        <a href="{{ route('designation.show', $item->id) }}"
+                                                        <a href="{{ route('teacher.show', $item->id) }}"
                                                             class="btn btn-sm btn-primary btn-anim"><i
                                                                 class="fa fa-sign-out"></i><span
                                                                 class="btn-text">Show</span></a>
@@ -81,8 +86,10 @@
                                     <tfoot>
                                         <tr>
                                             <th>Id</th>
+                                            <th>Lecturer Name</th>
                                             <th>Designation</th>
-                                            <th>Details</th>
+                                            <th>Email</th>
+                                            <th>Photo</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>

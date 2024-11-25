@@ -16,6 +16,7 @@ class Teacher extends Authenticatable
         'name',
         'email',
         'password',
+        'designation_id'
     ];
 
     protected $hidden = [
@@ -26,4 +27,8 @@ class Teacher extends Authenticatable
     protected $casts = [
         'password' => 'hashed',
     ];
+
+    public function designation(){
+        return $this->belongsTo(Designation::class);
+    }
 }

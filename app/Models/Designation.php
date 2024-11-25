@@ -13,4 +13,8 @@ class Designation extends Model
         'name',
         'details'
     ];
+
+    public function teacher(){
+        return $this->hasMany(Teacher::class);
+    }
 }

@@ -13,8 +13,8 @@ class DesignationController extends Controller
      */
     public function index()
     {
-        $items = Designation::all();
-        //$items = Designation::orderBy('id', 'desc');
+        //$items = Designation::all();
+        $items = Designation::orderBy('id', 'desc')->get();
         return view('backend.designation.index', compact('items'));
     }
 
@@ -23,7 +23,7 @@ class DesignationController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.designation.create');
     }
 
     /**
@@ -31,7 +31,21 @@ class DesignationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'designation' => 'required',
+            'details' => 'required | max:150'
+            
+        ]
+    );
+        $designation = new Designation();
+        
+        $designation->name = $request->designation;
+        $designation->details = $request->details;
+
+        $designation->save();
+
+        return redirect()->route('designation.index')->with('msg', 'Successfully Created');
     }
 
     /**
@@ -39,7 +53,8 @@ class DesignationController extends Controller
      */
     public function show(Designation $designation)
     {
-        //
+        //dd($specialist);
+        return view('backend.designation.show', compact('designation'));
     }
 
     /**
@@ -47,7 +62,7 @@ class DesignationController extends Controller
      */
     public function edit(Designation $designation)
     {
-        //
+        return view('backend.designation.edit', compact('designation'));
     }
 
     /**
@@ -55,7 +70,11 @@ class DesignationController extends Controller
      */
     public function update(Request $request, Designation $designation)
     {
-        //
+        $designation->name = $request->designation;
+        $designation->details = $request->details;
+
+        $designation->update();
+        return redirect()->route('designation.index')->with('upt', 'Successfully Updated'); 
     }
 
     /**
@@ -63,6 +82,7 @@ class DesignationController extends Controller
      */
     public function destroy(Designation $designation)
     {
-        //
+        $designation->delete();
+        return redirect()->route('designation.index')->with('dlt', 'Successfully Deleted');
     }
 }
