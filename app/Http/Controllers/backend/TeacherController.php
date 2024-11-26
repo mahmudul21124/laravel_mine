@@ -37,12 +37,26 @@ class TeacherController extends Controller
             [
                 'name' => 'required | max:100 | min:5',
                 'designation' => 'required',
-                'email' => 'required | max:50',
+                'email' => 'required | email | max:50',
                 'password' => 'required | min:8 | confirmed',
-                'photo' => 'max:2048',
+                'photo' => 'image | mimes:jpeg,png,jpg,gif,svg | max:2048',
                 'status' => 'required',
+                'dob' => 'required',
+                'gender' => 'required',
+                'address' => 'required',
+                'phone' => 'required'
             ]
         );
+
+        if ($image = $request->file('photo')) {
+            $destinationPath = 'images/';
+            $postImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $postImage);
+            $photo = $destinationPath.$postImage;
+        }
+        else{
+            $photo = 'images/nophoto.jpg';
+        }
 
 
         $teacher = new Teacher();
@@ -51,7 +65,11 @@ class TeacherController extends Controller
         $teacher->designation_id = $request->designation;
         $teacher->email = $request->email;
         $teacher->password = bcrypt($request->password);
-        $teacher->photo = $request->photo;
+        $teacher->dob = $request->dob;
+        $teacher->gender = $request->gender;
+        $teacher->address = $request->address;
+        $teacher->phone = $request->phone;
+        $teacher->photo = $photo;
         $teacher->status = $request->status;
 
         $teacher->save();
@@ -62,9 +80,9 @@ class TeacherController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Teacher $teacher)
     {
-        //
+        return view('backend.teacher.show', compact('teacher'));
     }
 
     /**
@@ -81,17 +99,41 @@ class TeacherController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Teacher $teacher)
     {
-        
-        $designations = Designation::all();
-        $teacher = Teacher::all();
-        dd($teacher);
+        $request->validate(
+            [
+                'name' => 'required | max:100 | min:5',
+                'designation' => 'required',
+                'email' => 'required | email | max:50',
+                'photo' => 'image | mimes:jpeg,png,jpg,gif,svg | max:2048',
+                'status' => 'required',
+                'dob' => 'required',
+                'gender' => 'required',
+                'address' => 'required',
+                'phone' => 'required'
+            ]
+        );
+
+        if ($image = $request->file('photo')) {
+            $destinationPath = 'images/';
+            $postImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $postImage);
+            $photo = $destinationPath.$postImage;
+        }
+        else{
+            $photo = $teacher->photo;
+        }
+
         $teacher->name = $request->name;
         $teacher->designation_id = $request->designation;
         $teacher->email = $request->email;
-        $teacher->password = bcrypt($request->password);
-        $teacher->photo = $request->photo;
+        $teacher->password = $teacher->password;
+        $teacher->dob = $request->dob;
+        $teacher->gender = $request->gender;
+        $teacher->address = $request->address;
+        $teacher->phone = $request->phone;
+        $teacher->photo = $photo;
         $teacher->status = $request->status;
 
         $teacher->update();
@@ -101,8 +143,9 @@ class TeacherController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Teacher $teacher)
     {
-        //
+        $teacher->delete();
+        return redirect()->route('teacher.index')->with('dlt', 'Successfully Deleted');
     }
 }

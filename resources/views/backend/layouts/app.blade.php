@@ -26,6 +26,8 @@
             @include('backend.layouts.header')
         @elseif (Auth()->guard('teacher')->check())
             @include('backend.layouts.teacher_header')
+        @elseif (Auth()->guard('student')->check())
+            @include('backend.layouts.student_header')
         @endif
         <!--**********************************
             Nav header end
@@ -38,6 +40,8 @@
             @include('backend.layouts.sidebar')
         @elseif (Auth()->guard('teacher')->check())
             @include('backend.layouts.teacher_sidebar')
+        @elseif (Auth()->guard('student')->check())
+            @include('backend.layouts.student_sidebar')
         @endif
         <!--**********************************
             Sidebar end

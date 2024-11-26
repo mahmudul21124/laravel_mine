@@ -17,9 +17,9 @@
                 </div>
                 <div class="col p-md-0">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Table</a>
+                        <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a>
                         </li>
-                        <li class="breadcrumb-item active">Datatable</li>
+                        <li class="breadcrumb-item active">Lacturer</li>
                     </ol>
                 </div>
             </div>
@@ -46,7 +46,12 @@
                                             <th>Lecturer Name</th>
                                             <th>Designation</th>
                                             <th>Email</th>
+                                            <th>Date of Birth</th>
+                                            <th>Gender</th>
+                                            <th>Address</th>
+                                            <th>Phone</th>
                                             <th>Photo</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -57,8 +62,13 @@
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->designation->name }}</td>
                                                 <td>{{ $item->email }}</td>
-                                                <td>{{ $item->photo }}</td>
-                                                
+                                                <td>{{ $item->dob }}</td>
+                                                <td>{{ $item->gender }}</td>
+                                                <td>{{ $item->address }}</td>
+                                                <td>{{ $item->phone }}</td>
+                                                <td><img src="{{ asset($item->photo) }}" alt="" width="100"></td>
+                                                <td>{{ $item->status }}</td>
+
                                                 <td>
                                                     <form action="{{ route('teacher.destroy', $item->id) }}"
                                                         method="post">
@@ -89,7 +99,12 @@
                                             <th>Lecturer Name</th>
                                             <th>Designation</th>
                                             <th>Email</th>
+                                            <th>Date of Birth</th>
+                                            <th>Gender</th>
+                                            <th>Address</th>
+                                            <th>Phone</th>
                                             <th>Photo</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>

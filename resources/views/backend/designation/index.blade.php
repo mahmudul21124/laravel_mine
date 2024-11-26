@@ -19,7 +19,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Table</a>
                         </li>
-                        <li class="breadcrumb-item active">Datatable</li>
+                        <li class="breadcrumb-item active">Designation</li>
                     </ol>
                 </div>
             </div>
@@ -36,6 +36,7 @@
                     @endif
                     <div class="card">
                         <div class="card-body">
+                            <h4 class="card-title mb-4">Designations</h4>
                             <div class="table-responsive">
                                 <a href="{{ route('designation.create') }}" class="btn btn-success pull-right">Add
                                     new</a><br><br>

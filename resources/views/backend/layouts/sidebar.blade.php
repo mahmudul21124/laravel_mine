@@ -7,10 +7,16 @@
                     <i class="mdi mdi-view-dashboard"></i><span class="nav-text">Lacturer</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{route('teacher.index')}}">Lacturer</a></li>
-                    <li><a href="{{route('designation.index')}}">Designation</a>
-                    </li>
+                    <li><a href="{{ route('teacher.index') }}">Lacturer</a></li>
+                    <li><a href="{{ route('designation.index') }}">Designation</a></li>
+                </ul>
             </li>
+
+            <li><a href="{{ route('department.index') }}">Department</a></li>
+            <li><a href="{{ route('classroom.index') }}">Classroom</a></li>
+            <li><a href="{{ route('student.index') }}">Students</a></li>
+            <li><a href="{{ route('subject.index') }}">Subject</a></li>
+            <li><a href="{{ route('timetable.index') }}">Timetable</a></li>
         </ul>
 
 

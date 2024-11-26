@@ -32,14 +32,15 @@ class DesignationController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'designation' => 'required',
-            'details' => 'required | max:150'
-            
-        ]
-    );
+        $request->validate(
+            [
+                'designation' => 'required | min:3 | max:50',
+                'details' => 'required | max:150'
+
+            ]
+        );
         $designation = new Designation();
-        
+
         $designation->name = $request->designation;
         $designation->details = $request->details;
 
@@ -70,11 +71,19 @@ class DesignationController extends Controller
      */
     public function update(Request $request, Designation $designation)
     {
+        $request->validate(
+            [
+                'designation' => 'required | min:3 | max:50',
+                'details' => 'required | max:150'
+
+            ]
+        );
+        
         $designation->name = $request->designation;
         $designation->details = $request->details;
 
         $designation->update();
-        return redirect()->route('designation.index')->with('upt', 'Successfully Updated'); 
+        return redirect()->route('designation.index')->with('upt', 'Successfully Updated');
     }
 
     /**

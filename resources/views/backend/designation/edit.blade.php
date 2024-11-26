@@ -21,7 +21,7 @@
                         <li class="breadcrumb-item"><a href="index.html">Home</a>
                         </li>
                         <!-- <li class="breadcrumb-item"><a href="javascript:void()">Forms</a>
-                        </li> -->
+                                            </li> -->
                         <li class="breadcrumb-item active">Basic Forms
                         </li>
                     </ol>
@@ -29,52 +29,56 @@
             </div>
 
             <div class="row">
-                
+
                 <div class="col-8 offset-2">
                     <div class="card form-card">
                         <div class="card-body">
                             <h4 class="card-title mb-4">New Designation</h4>
-                            <form class="form-horizontal" method="post" action="{{route('designation.update', $designation->id)}}">
+                            <form class="form-horizontal" method="post"
+                                action="{{ route('designation.update', $designation->id) }}">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
-                                    <label for="exampleInputuname_4"
-                                        class="col-sm-3 control-label">Designation*</label>
+                                    <label for="exampleInputuname_4" class="col-sm-3 control-label">Designation*</label>
                                     <div class="col-sm-9">
                                         <div class="input-group">
                                             <input type="text" class="form-control" id="exampleInputuname_4"
-                                                name="designation" value="{{$designation->name}}" placeholder="Enter Designation">
-                                            <div class="input-group-addon"><i class="icon-user"></i></div>
+                                                name="designation" value="{{ old('designation') ?? $designation->name }}"
+                                                placeholder="Enter Designation">
                                         </div>
+                                        @error('designation')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail_4"
-                                        class="col-sm-3 control-label">Details*</label>
+                                    <label for="exampleInputEmail_4" class="col-sm-3 control-label">Details*</label>
                                     <div class="col-sm-9">
                                         <div class="input-group">
-                                            <textarea name="details" id="" class="form-control"
-                                                placeholder="Enter details" rows="10">{{$designation->details}}</textarea>
-                                            <div class="input-group-addon"><i class="icon-envelope-open"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="form-group mb-0">
-                                    <div class="col-sm-offset-3 col-sm-9">
-                                        <button type="submit" class="btn btn-info ">Add</button>
+                                            <textarea name="details" id="" class="form-control" placeholder="Enter details" rows="10">{{ old('details') ?? $designation->details }}</textarea>
+                                        </div>
+                                        @error('details')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
-                            </form>
                         </div>
+
+                        <div class="form-group mb-0">
+                            <div class="col-sm-offset-3 col-sm-9">
+                                <button type="submit" class="btn btn-info ">Add</button>
+                            </div>
+                        </div>
+                        </form>
                     </div>
                 </div>
-
             </div>
 
         </div>
-        <!-- #/ container -->
+
+    </div>
+    <!-- #/ container -->
     </div>
 @endsection
 

@@ -16,7 +16,11 @@ class Teacher extends Authenticatable
         'name',
         'email',
         'password',
-        'designation_id'
+        'designation_id',
+        'dob',
+        'gender',
+        'address',
+        'phone'
     ];
 
     protected $hidden = [
@@ -30,5 +34,13 @@ class Teacher extends Authenticatable
 
     public function designation(){
         return $this->belongsTo(Designation::class);
+    }
+
+    public function department(){
+        return $this->belongsTo(Department::class);
+    }
+
+    public function classroom(){
+        return $this->hasMany(Classroom::class);
     }
 }

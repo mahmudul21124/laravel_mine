@@ -14,15 +14,15 @@
         <div class="container-fluid">
             <div class="row page-titles">
                 <div class="col p-md-0">
-                    <h4>Basic Forms</h4>
+                    <h4>New Lacturer</h4>
                 </div>
                 <div class="col p-md-0">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a>
+                        <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a>
                         </li>
                         <!-- <li class="breadcrumb-item"><a href="javascript:void()">Forms</a>
-                                                        </li> -->
-                        <li class="breadcrumb-item active">Basic Forms
+                                                                </li> -->
+                        <li class="breadcrumb-item active">New Lacturer
                         </li>
                     </ol>
                 </div>
@@ -34,7 +34,8 @@
                     <div class="card form-card">
                         <div class="card-body">
                             <h4 class="card-title mb-4">New Lacturer</h4>
-                            <form class="form-horizontal" method="post" action="{{ route('teacher.store') }}" enctype="multipart/form-data">
+                            <form class="form-horizontal" method="post" action="{{ route('teacher.store') }}"
+                                enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="form-group">
@@ -111,6 +112,62 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label for="exampleInputuname_4" class="col-sm-3 control-label">Date of Birth*</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <input type="date" class="form-control" id="exampleInputuname_4"
+                                                name="dob" value="{{ old('dob') }}">
+                                        </div>
+                                        @error('dob')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputuname_4" class="col-sm-3 control-label">Gender*</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <input id="radio1" class=""  name="gender"
+                                                type="radio" value="male" @if (old('status') == 'male') checked @endif>
+                                            <label for="radio1" class="">Male</label>
+
+                                            <input id="radio2" class=""  name="gender"
+                                                type="radio" value="female" @if (old('status') == 'female') checked @endif>
+                                            <label for="radio2" class="">Female</label>
+                                        </div>
+                                        @error('gender')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputEmail_4" class="col-sm-3 control-label">Address*</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <textarea name="address" id="" class="form-control" placeholder="Enter address" rows="10">{{ old('address') }}</textarea>
+                                        </div>
+                                        @error('address')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputuname_4" class="col-sm-3 control-label">Phone*</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="exampleInputuname_4"
+                                                name="phone" value="{{ old('phone') }}" placeholder="Enter Phone Number">
+                                        </div>
+                                        @error('phone')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="exampleInputuname_4" class="col-sm-3 control-label">Photo*</label>
                                     <div class="col-sm-9">
                                         <div class="input-group">
@@ -129,8 +186,8 @@
                                         <div class="input-group">
                                             <select name="status" id="" class="form-control">
                                                 <option value="">Select One</option>
-                                                    <option value="active">Active</option>
-                                                    <option value="inactive">Inactive</option>
+                                                <option value="active">Active</option>
+                                                <option value="inactive">Inactive</option>
                                             </select>
                                         </div>
                                         @error('status')
