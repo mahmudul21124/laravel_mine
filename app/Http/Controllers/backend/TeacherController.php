@@ -72,10 +72,10 @@ class TeacherController extends Controller
      */
     public function edit(string $id)
     {
-        //$designations = Designation::all();
-        $teacher = Teacher::all();
+        $designations = Designation::all();
+        $teacher = Teacher::find($id);
         
-        return view('backend.teacher.edit', compact('teacher'));
+        return view('backend.teacher.edit', compact('teacher', 'designations'));
     }
 
     /**
@@ -84,18 +84,18 @@ class TeacherController extends Controller
     public function update(Request $request, string $id)
     {
         
-        // $designations = Designation::all();
+        $designations = Designation::all();
         $teacher = Teacher::all();
         dd($teacher);
-        // $teacher->name = $request->name;
-        // $teacher->designation_id = $request->designation;
-        // $teacher->email = $request->email;
-        // $teacher->password = bcrypt($request->password);
-        // $teacher->photo = $request->photo;
-        // $teacher->status = $request->status;
+        $teacher->name = $request->name;
+        $teacher->designation_id = $request->designation;
+        $teacher->email = $request->email;
+        $teacher->password = bcrypt($request->password);
+        $teacher->photo = $request->photo;
+        $teacher->status = $request->status;
 
-        // $teacher->update();
-        // return redirect()->route('teacher.index')->with('upt', 'Successfully Updated');
+        $teacher->update();
+        return redirect()->route('teacher.index')->with('upt', 'Successfully Updated');
     }
 
     /**
