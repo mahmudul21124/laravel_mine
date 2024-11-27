@@ -13,5 +13,8 @@ class Subject extends Model
         'name'
     ];
     
+    public function timetable(){
+        return $this->hasMany(Timetable::class);
+    }
     
 }

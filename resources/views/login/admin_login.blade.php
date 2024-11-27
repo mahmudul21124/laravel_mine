@@ -14,27 +14,11 @@
 </head>
 
 <body class="h-100">
-    <div id="preloader">
-        <div class="loader">
-            <svg class="circular" viewBox="25 25 50 50">
-                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3"
-                    stroke-miterlimit="10" />
-            </svg>
-        </div>
-    </div>
+    
     <div class="login-bg2 h-100">
         <div class="container-fluid h-100">
             <div class="row justify-content-between h-100">
-                <div class="col-xl-4">
-                    <div class="login-info">
-                        <h2>Manage Your Order</h2>
-                        <p class="mb-5">A small river named Duden flows by their place and supplies it with the
-                            necessary regelialia. It is a paradisematic country in which roasted parts of sentences fly
-                            into your mouth.</p>
-                        <h5>Ph: +880 123 1234</h5>
-                        <h5>Email: hello@example.com</h5>
-                    </div>
-                </div>
+                
                 <div class="col-xl-3 p-0">
                     <div class="form-input-content login-form bg-white">
                         <div class="card">

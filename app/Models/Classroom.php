@@ -21,4 +21,8 @@ class Classroom extends Model
     public function student(){
         return $this->hasMany(Student::class);
     }
+
+    public function timetable(){
+        return $this->hasMany(Timetable::class);
+    }
 }
