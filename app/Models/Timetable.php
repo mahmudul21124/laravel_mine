@@ -13,6 +13,6 @@ class Timetable extends Model
         'name',
         'classroom_id',
         'subject_id',
-        ''
+        
     ];
 }

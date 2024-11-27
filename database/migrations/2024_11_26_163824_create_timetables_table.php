@@ -16,9 +16,9 @@ return new class extends Migration
             $table->integer('classroom_id');
             $table->integer('subject_id');
             $table->integer('teacher_id');
-            $table->enum('day', ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday']);
-            $table->dateTime('startTime');
-            $table->dateTime('endTime');
+            $table->date('day');
+            $table->time('startTime');
+            $table->time('endTime');
             $table->timestamps();
         });
     }

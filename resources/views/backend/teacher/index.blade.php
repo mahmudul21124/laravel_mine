@@ -39,7 +39,7 @@
                             <div class="table-responsive">
                                 <a href="{{ route('teacher.create') }}" class="btn btn-success pull-right">Add
                                     new</a><br><br>
-                                <table id="example" class="display" style="min-width: 845px">
+                                <table id="example" class="display table-active" style="min-width: 845px">
                                     <thead>
                                         <tr>
                                             <th>Id</th>
