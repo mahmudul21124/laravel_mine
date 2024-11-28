@@ -40,8 +40,8 @@
                             <div class="table-responsive">
                                 <a href="{{ route('department.create') }}" class="btn btn-success pull-right">Add
                                     new</a><br><br>
-                                <table id="example" class="display" style="min-width: 845px">
-                                    <thead>
+                                <table id="example" class="table display" style="min-width: 845px">
+                                    <thead class="thead-dark">
                                         <tr>
                                             <th>Id</th>
                                             <th>Department</th>
@@ -72,7 +72,7 @@
                                             </tr>
                                         @endforeach
                                     </tbody>
-                                    <tfoot>
+                                    <tfoot class="thead-dark">
                                         <tr>
                                             <th>Id</th>
                                             <th>Department</th>

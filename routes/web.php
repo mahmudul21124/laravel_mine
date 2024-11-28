@@ -77,6 +77,9 @@ Route::middleware('auth:teacher')->prefix('teacher')->group(function () {
 
     Route::post('logout', [App\Http\Controllers\Auth\Teacher\LoginController::class, 'logout'])->name('teacher.logout');
     Route::view('/dashboard', 'backend.teacher_dashboard');
+    // Route::resource('/student', StudentController::class);
+    // Route::resource('/subject', SubjectController::class);
+    // Route::resource('/timetable', TimetableController::class);
 });
 
 //Student guard
