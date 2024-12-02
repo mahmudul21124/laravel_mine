@@ -90,7 +90,7 @@
                                                 class="btn btn-google-plus"><i class="fa fa-google-plus"></i></a>
                                         </li>
                                     </ul>
-                                    <p class="mt-5">Dont have an account? <a href="javascript:void()">Register Now</a>
+                                    <p class="mt-5">Dont have an account? <a href="{{route('student.register')}}">Register Now</a>
                                     </p>
                                 </div>
                             </div>

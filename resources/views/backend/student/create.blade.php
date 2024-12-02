@@ -21,7 +21,7 @@
                         <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a>
                         </li>
                         <!-- <li class="breadcrumb-item"><a href="javascript:void()">Forms</a>
-                                                                </li> -->
+                                                                        </li> -->
                         <li class="breadcrumb-item active">New Student
                         </li>
                     </ol>
@@ -128,12 +128,12 @@
                                     <label for="exampleInputuname_4" class="col-sm-3 control-label">Gender*</label>
                                     <div class="col-sm-9">
                                         <div class="input-group">
-                                            <input id="radio1" class=""  name="gender"
-                                                type="radio" value="male" @if (old('status') == 'male') checked @endif>
+                                            <input id="radio1" class="" name="gender" type="radio"
+                                                value="male" @if (old('status') == 'male') checked @endif>
                                             <label for="radio1" class="">Male</label>
 
-                                            <input id="radio2" class=""  name="gender"
-                                                type="radio" value="female" @if (old('status') == 'female') checked @endif>
+                                            <input id="radio2" class="" name="gender" type="radio"
+                                                value="female" @if (old('status') == 'female') checked @endif>
                                             <label for="radio2" class="">Female</label>
                                         </div>
                                         @error('gender')
@@ -159,7 +159,8 @@
                                     <div class="col-sm-9">
                                         <div class="input-group">
                                             <input type="text" class="form-control" id="exampleInputuname_4"
-                                                name="phone" value="{{ old('phone') }}" placeholder="Enter Phone Number">
+                                                name="phone" value="{{ old('phone') }}"
+                                                placeholder="Enter Phone Number">
                                         </div>
                                         @error('phone')
                                             <div class="alert alert-danger">{{ $message }}</div>
@@ -180,7 +181,7 @@
                                     </div>
                                 </div>
 
-                                
+
 
 
                         </div>

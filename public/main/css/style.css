@@ -22562,7 +22562,7 @@ input[type="radio"].radio-outlined:checked + label::before {
     top: 0;
 }
 #login-page2 body {
-    background: url(../../assets/images/background/login-bg1.jpg);
+    background: url(assets/images/background/login-bg1.jpg);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -22580,7 +22580,7 @@ input[type="radio"].radio-outlined:checked + label::before {
     z-index: -1;
 }
 #login-page1 body {
-    background: url(../../assets/images/background/login-bg.jpg);
+    background: url(assets/images/background/login-bg1.jpg);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

@@ -89,8 +89,8 @@ Route::middleware('guest:student')->prefix('student')->group(function () {
     Route::get('login', [App\Http\Controllers\Auth\Student\LoginController::class, 'create'])->name('student.login');
     Route::post('login', [App\Http\Controllers\Auth\Student\LoginController::class, 'store']);
 
-    // Route::get('register', [App\Http\Controllers\Auth\Student\RegisterController::class, 'create'])->name('student.register');
-    // Route::post('register', [App\Http\Controllers\Auth\Student\RegisterController::class, 'store']);
+    Route::get('register', [App\Http\Controllers\Auth\Student\RegisterController::class, 'create'])->name('student.register');
+    Route::post('register', [App\Http\Controllers\Auth\Student\RegisterController::class, 'store'])->name('front_student.register');
 });
 
 Route::middleware('auth:student')->prefix('student')->group(function () {
